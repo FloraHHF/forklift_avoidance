@@ -1,0 +1,211 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- 动力学库 -->
+    <physics type='ode'>
+      <gravity>0 0 -9.8066</gravity>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>10</iters>
+          <sor>1.3</sor>
+          <use_dynamic_moi_rescaling>0</use_dynamic_moi_rescaling>
+        </solver>
+        <constraints>
+          <cfm>0.00001</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>1000</contact_max_correcting_vel>
+          <contact_surface_layer>0.01</contact_surface_layer>
+        </constraints>
+      </ode>
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+      <magnetic_field>6.0e-6 2.3e-5 -4.2e-5</magnetic_field>
+    </physics>
+
+    <!-- initial view -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>-13.0 0.0 12.0 0 0.75 0.0</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- decoration: prometheus logo -->
+    <model name='texture 1'>
+      <static>true</static>
+      <link name="prometheus_logo">
+        <pose frame=''> 0.0 5.0 0.0 0.0 0.0 1.57</pose>
+        <visual name="visual">
+            <cast_shadows>false</cast_shadows>
+            <geometry>
+              <box>
+                <size>15.0 15.0 0.01</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <uri>model://prometheus_texture/texture.material</uri>
+                <name>prometheus_logo2</name>
+              </script>
+            </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='texture 2'>
+      <static>true</static>
+      <link name="prometheus_logo">
+        <pose frame=''> 0.0 20.0 0.0 0.0 0.0 1.57</pose>
+        <visual name="visual">
+            <cast_shadows>false</cast_shadows>
+            <geometry>
+              <box>
+                <size>15.0 15.0 0.01</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <uri>model://prometheus_texture/texture.material</uri>
+                <name>prometheus_logo2</name>
+              </script>
+            </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- First chunk of the warehouse: roof-roof -->
+    <!-- First chunk of the warehouse: roof-roof -->
+    <model name="aws_robomaker_warehouse_RoofB_01_001">
+        <include>
+            <uri>model://aws_robomaker_warehouse_RoofB_01</uri>
+        </include>
+        <pose frame="">0.0 7 7 0 0 0</pose>
+    </model>
+
+    <!-- First chunk of the warehouse: roof-lamp -->
+    <model name="aws_robomaker_warehouse_Lamp_01_001">
+        <include>
+            <uri>model://aws_robomaker_warehouse_Lamp_01</uri>
+        </include>
+        <pose frame="">0 7 3 0 0 0</pose>
+    </model>
+
+    <!-- First chunk of the warehouse: roof-light -->
+    <light name="Warehouse_CeilingLight_001" type="point">
+      <pose frame="">0 7 15 0 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>80</range>
+        <constant>0.3</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>1</cast_shadows>
+      <direction>0.1 0.1 -1</direction>
+    </light>
+
+    <!-- First chunk of the warehouse: left shelves: lower layer -->
+    <model name="aws_robomaker_warehouse_ShelfF_left_0_001">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfF_01</uri>
+        </include>
+        <pose frame="">-5 8 0 0 0 0</pose>
+    </model>
+
+    <!-- First chunk of the warehouse: left shelves: upper layer -->
+    <model name="aws_robomaker_warehouse_ShelfF_left_0_002">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfF_01</uri>
+        </include>
+        <pose frame="">-5 8 6.1 0 0 0</pose>
+      </model>
+
+    <model name="aws_robomaker_warehouse_ShelfF_right_0_001">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfF_01</uri>
+        </include>
+        <pose frame=""> 5 8 0 0 0 0</pose>
+    </model>
+
+    <model name="aws_robomaker_warehouse_ShelfF_right_0_002">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfF_01</uri>
+        </include>
+        <pose frame=""> 5 8 6.1 0 0 0</pose>
+    </model>
+
+    <!-- Second chunk of the warehouse: roof-roof -->
+    <!-- Second chunk of the warehouse: roof-roof -->
+    <model name="aws_robomaker_warehouse_RoofB_02_001">
+        <include>
+            <uri>model://aws_robomaker_warehouse_RoofB_01</uri>
+        </include>
+        <pose frame="">0.0 27 7 0 0 0</pose>
+    </model>
+
+    <!-- Second chunk of the warehouse: roof-lamp -->
+    <model name="aws_robomaker_warehouse_Lamp_02_001">
+        <include>
+            <uri>model://aws_robomaker_warehouse_Lamp_01</uri>
+        </include>
+        <pose frame="">0 27 3 0 0 0</pose>
+    </model>
+
+    <!-- Second chunk of the warehouse: roof-light -->
+    <light name="Warehouse_CeilingLight_002" type="point">
+      <pose frame="">0 27 15 0 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>80</range>
+        <constant>0.3</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>1</cast_shadows>
+      <direction>0.1 0.1 -1</direction>
+    </light>
+
+    <!-- Second chunk of the warehouse: left shelves: lower layer-->
+    <model name="aws_robomaker_warehouse_ShelfF_left_1_001">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfF_01</uri>
+        </include>
+        <pose frame="">-5 26 0 0 0 0</pose>
+    </model>
+
+    <!-- Second chunk of the warehouse: left shelves: upper layer-->
+    <model name="aws_robomaker_warehouse_ShelfF_left_1_002">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfF_01</uri>
+        </include>
+        <pose frame="">-5 26 6.1 0 0 0</pose>
+    </model>
+
+    <!-- Second chunk of the warehouse: right shelves: lower layer-->
+    <model name="aws_robomaker_warehouse_ShelfF_right_1_001">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfF_01</uri>
+        </include>
+        <pose frame=""> 5 26 0 0 0 0</pose>
+    </model>
+
+    <!-- Second chunk of the warehouse: right shelves: upper layer-->
+    <model name="aws_robomaker_warehouse_ShelfF_right_1_002">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfF_01</uri>
+        </include>
+        <pose frame=""> 5 26 6.1 0 0 0</pose>
+    </model>
+
+
+  </world>
+</sdf>
