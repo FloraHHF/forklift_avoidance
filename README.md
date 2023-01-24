@@ -79,4 +79,7 @@ Install `libcaer`, following the instruction from [iniVation documentation](http
 
 5. In QGroundControl, go to application settings>general>tick `Virtual Joystick`
 
-6. Arm the drone from QGroundControl, then you should be able to control P230 using the virtual joystick and view the event camera output. 
+6. Arm the drone from QGroundControl, then you should be able to control P230 using the virtual joystick and view the event camera output. The result is shown below
+https://user-images.githubusercontent.com/108480783/214370080-d294117f-2b4a-4fb5-a448-d6bfd04e8ff5.mp4
+
+
