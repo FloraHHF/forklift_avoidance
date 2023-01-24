@@ -51,8 +51,8 @@
         <visualize>0</visualize>
 
         <plugin name='camera_controller' filename='libgazebo_dvs_plugin.so'>
-          <FloraTest>1</FloraTest>
-          <cameraName>DVS_front</cameraName>
+          <!-- <FloraTest>1</FloraTest> -->
+          <cameraName>dvs_front</cameraName>
           <robotNamespace>uav1</robotNamespace>
           <eventThreshold>10</eventThreshold>
           <cameraInfoTopicName>camera_info</cameraInfoTopicName>
